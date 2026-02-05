@@ -1,10 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
 import { Package, ShoppingCart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/useAuthStore';
 import { useCartStore } from '../store/useCartStore';
 import NotificationTest from '../components/notifications/NotificationTest';
 
 const MainLayout = () => {
+    const { t } = useTranslation();
     const { isAuthenticated, logout } = useAuthStore();
     const items = useCartStore((state) => state.items);
 
@@ -18,17 +20,17 @@ const MainLayout = () => {
                     </Link>
 
                     <nav className="main-nav">
-                        <Link to="/catalog" className="nav-link">Catalog</Link>
-                        <Link to="/calculator" className="nav-link">Calculator</Link>
-                        <Link to="/customers" className="nav-link">CRM</Link>
-                        <Link to="/orders" className="nav-link">Orders</Link>
+                        <Link to="/catalog" className="nav-link">{t('nav.catalog')}</Link>
+                        <Link to="/calculator" className="nav-link">{t('nav.calculator')}</Link>
+                        <Link to="/customers" className="nav-link">{t('nav.crm')}</Link>
+                        <Link to="/orders" className="nav-link">{t('nav.orders')}</Link>
                         {isAuthenticated ? (
                             <button onClick={() => logout()} className="logout-btn nav-link">
-                                Logout
+                                {t('nav.logout')}
                             </button>
                         ) : (
                             <Link to="/login" className="btn-primary login-btn-small">
-                                Login
+                                {t('nav.login')}
                             </Link>
                         )}
                         <Link to="/cart" className="cart-icon-wrapper">
@@ -51,7 +53,7 @@ const MainLayout = () => {
 
             <footer className="main-footer">
                 <div className="container">
-                    &copy; {new Date().getFullYear()} PackageMatch. All rights reserved.
+                    &copy; {new Date().getFullYear()} PackageMatch. {t('footer.rights')}
                     <div className="footer-notification-wrapper">
                         <NotificationTest />
                     </div>

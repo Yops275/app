@@ -1,0 +1,35 @@
+{
+    "nav": {
+        "home": "Home",
+        "catalog": "Catalog",
+        "calculator": "Calculator",
+        "crm": "CRM",
+        "orders": "Orders",
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "hero": {
+        "title": "Smart Packaging",
+        "highlight": "Solutions",
+        "description": "AI-powered packaging selection, 3D visualization, and seamless ordering for your business.",
+        "browseCatalog": "Browse Catalog",
+        "tryCalculator": "Try Calculator"
+    },
+    "features": {
+        "calculator": {
+            "title": "AI Calculator",
+            "desc": "Find the perfect box size for your products instantly with our algorithm."
+        },
+        "ar": {
+            "title": "AR Visualization",
+            "desc": "View packaging in your space before you buy using Augmented Reality."
+        },
+        "analytics": {
+            "title": "Smart Analytics",
+            "desc": "Track orders and optimize your packaging supply chain."
+        }
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    }
+}
