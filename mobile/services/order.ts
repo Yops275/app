@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { AuthService } from './auth';
+import { API_URL } from './config';
+
 
 export interface OrderItem {
     productId: number;
@@ -21,7 +23,7 @@ export const OrderService = {
     getAllOrders: async (): Promise<Order[]> => {
         try {
             const token = await AuthService.getToken();
-            const response = await axios.get(`${AuthService.API_URL}/orders`, {
+            const response = await axios.get(`${API_URL}/orders`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -34,7 +36,7 @@ export const OrderService = {
     getOrderById: async (id: number): Promise<Order> => {
         try {
             const token = await AuthService.getToken();
-            const response = await axios.get(`${AuthService.API_URL}/orders/${id}`, {
+            const response = await axios.get(`${API_URL}/orders/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;

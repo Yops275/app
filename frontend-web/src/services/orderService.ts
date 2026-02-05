@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { API_URL as BASE_URL } from './config';
 
-const API_URL = 'http://localhost:4000/api/orders';
+const API_URL = `${BASE_URL}/orders`;
+
 
 export interface Order {
     id: number;

@@ -1,8 +1,8 @@
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 import { Platform } from 'react-native';
+import { API_URL } from './config';
 
-const API_URL = Platform.OS === 'android' ? 'http://10.0.2.2:4000/api' : 'http://localhost:4000/api';
 
 const TOKEN_KEY = 'auth_token';
 
@@ -24,7 +24,6 @@ export const AuthService = {
 
     getToken: async () => {
         return await SecureStore.getItemAsync(TOKEN_KEY);
-    },
-
-    API_URL
+    }
 };
+

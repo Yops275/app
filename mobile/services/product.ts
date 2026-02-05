@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { AuthService } from './auth';
+import { API_URL } from './config';
+
 
 export interface Product {
     id: number;
@@ -22,7 +24,7 @@ export const ProductService = {
     getAllProducts: async (): Promise<Product[]> => {
         try {
             const token = await AuthService.getToken();
-            const response = await axios.get(`${AuthService.API_URL}/products`, {
+            const response = await axios.get(`${API_URL}/products`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -35,7 +37,7 @@ export const ProductService = {
     getProductById: async (id: string): Promise<Product> => {
         try {
             const token = await AuthService.getToken();
-            const response = await axios.get(`${AuthService.API_URL}/products/${id}`, {
+            const response = await axios.get(`${API_URL}/products/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -50,7 +52,7 @@ export const ProductService = {
             const token = await AuthService.getToken();
             // Assuming backend supports filter or we fetch all and find (for MVP)
             // Ideally: GET /products?barcode=...
-            const response = await axios.get(`${AuthService.API_URL}/products`, {
+            const response = await axios.get(`${API_URL}/products`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 

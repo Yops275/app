@@ -1,8 +1,8 @@
 import axios from 'axios';
 import type { Product } from './productService';
 import type { ItemInput } from '../components/calculator/CalculatorForm';
+import { API_URL } from './config';
 
-const API_URL = 'http://localhost:4000/api';
 
 export interface PackedItem {
     name: string;
