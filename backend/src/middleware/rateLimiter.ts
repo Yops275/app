@@ -4,7 +4,6 @@ import redisClient from '../config/redis';
 
 export const apiLimiter = rateLimit({
     store: new RedisStore({
-        // @ts-expect-error - Type compatibility issue between redis v4 and rate-limit-redis
         sendCommand: (...args: string[]) => redisClient.sendCommand(args),
     }),
     windowMs: 15 * 60 * 1000, // 15 minutes
