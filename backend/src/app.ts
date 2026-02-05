@@ -24,11 +24,15 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
-// Connect to Redis
-connectRedis();
+// Connect to Redis (Skip in test environment, handled by tests/mocks if needed)
+if (process.env.NODE_ENV !== 'test') {
+    connectRedis();
+}
 
-// Apply Rate Limiting to all requests
-app.use('/api', apiLimiter);
+// Apply Rate Limiting to all requests (Skip in test environment)
+if (process.env.NODE_ENV !== 'test') {
+    app.use('/api', apiLimiter);
+}
 
 // Documentation
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
